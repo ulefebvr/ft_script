@@ -1,2 +1,10 @@
 # ft_script
-42 school project
+
+This is a 42 school project consisting in reproduce script(1) comportement only using functions available in man 2.
+
+[online doc](https://projects.intrav2.42.fr/uploads/document/document/65/ft_script.pdf)
+
+## Contributors
+
+* Umi Lefebvre
+* Roger Clanget

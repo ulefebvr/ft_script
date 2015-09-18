@@ -4,6 +4,8 @@ This is a 42 school project consisting in reproduce script(1) comportement only 
 
 [Project guideline](https://projects.intrav2.42.fr/uploads/document/document/65/ft_script.pdf)
 
+<img src="./.usage.png">
+
 ## Contributors
 
 * Umi Lefebvre

@@ -6,14 +6,13 @@
 /*   By: ulefebvr <ulefebvr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/16 10:58:05 by ulefebvr          #+#    #+#             */
-/*   Updated: 2015/09/16 10:58:06 by ulefebvr         ###   ########.fr       */
+/*   Updated: 2015/10/28 16:29:46 by ulefebvr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/time.h>
 #include <unistd.h>
 
-#include "ft_printf.h"
 #include "ft_script.h"
 
 #define START_M 	"Script started, output file is %s\n"
@@ -31,8 +30,8 @@ void		ft_messages(int start, t_script *args)
 	if (!(OPT_Q & args->option))
 	{
 		gettimeofday(&now_time, NULL);
-		ft_printf(start ? START_M : END_M, args->filename);
-		ft_fdprintf(args->out_file, start ? START_M_F : END_M_F,
+		ft_print(start ? START_M : END_M, args->filename);
+		ft_fdprint(args->out_file, start ? START_M_F : END_M_F,
 			ctime(&(now_time.tv_sec)));
 	}
 }
@@ -43,9 +42,9 @@ int			launch_script(t_script *args)
 
 	ft_messages(1, args);
 	if (!ft_openpt(&args->fds[MASTER], &args->fds[SLAVE]) || !term_init(args))
-		return (ft_fdprintf(2, "Error opening pseudo-terminal\n"), 0);
+		return (ft_fdprint(2, "Error opening pseudo-terminal\n"), 0);
 	if ((pid = fork()) < 0)
-		return (ft_fdprintf(2, "Error : problem with fork\n"), 0);
+		return (ft_fdprint(2, "Error : problem with fork\n"), 0);
 	if (!pid)
 	{
 		close(args->fds[MASTER]);

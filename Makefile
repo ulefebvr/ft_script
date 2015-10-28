@@ -6,7 +6,7 @@
 #    By: ulefebvr <ulefebvr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/16 18:39:36 by ulefebvr          #+#    #+#              #
-#    Updated: 2015/06/23 15:26:12 by ulefebvr         ###   ########.fr        #
+#    Updated: 2015/10/28 16:30:08 by ulefebvr         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -23,14 +23,13 @@ OBJ_NAME	=	$(SRC_NAME:.c=.o)
 SRC			=	$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ			=	$(addprefix $(OBJ_PATH),$(OBJ_NAME))
 INC			=	$(addprefix -I,$(INC_PATH))
-LIB_NAMES	=	./libft/libft.a ./ft_printf/libftprintf.a
+LIB_NAMES	=	./libft/libft.a
 LDFLAGS		=	$(LIB_NAMES)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C ./libft/
-	make -C ./ft_printf/
 	$(CC) $(LDFLAGS) $(OBJ) -o $@
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -39,18 +38,15 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 
 clean:
 	make clean -C ./libft
-	make clean -C ./ft_printf/
 	rm -fv $(OBJ)
 	@rmdir $(OBJ_PATH) 2> /dev/null || echo "" > /dev/null
 
 fclean: clean
 	make fclean -C ./libft
-	make fclean -C ./ft_printf/
 	rm -fv $(NAME)
 
 re: fclean all
 	make re -C ./libft
-	make re -C ./ft_printf/
 
 norme:
 	norminette $(SRC)

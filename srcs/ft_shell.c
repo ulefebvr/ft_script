@@ -6,12 +6,11 @@
 /*   By: ulefebvr <ulefebvr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/18 15:01:36 by ulefebvr          #+#    #+#             */
-/*   Updated: 2015/09/18 15:23:06 by ulefebvr         ###   ########.fr       */
+/*   Updated: 2015/10/28 16:29:11 by ulefebvr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_script.h"
-#include "ft_printf.h"
 
 char	*m_getenv(char *str, char **env)
 {
@@ -54,7 +53,7 @@ char	*ft_getpath(char *cmd, char **env)
 int		ft_print_err(int n, char *cmd)
 {
 	return (n >= 0 ? 1 :
-		ft_fdprintf(2, "script: %s: No such file or directory\n", cmd), 0);
+		ft_fdprint(2, "script: %s: No such file or directory\n", cmd), 0);
 }
 
 int		ft_getexec(char **cmd, char **env)

@@ -6,12 +6,11 @@
 /*   By: ulefebvr <ulefebvr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/16 09:51:07 by ulefebvr          #+#    #+#             */
-/*   Updated: 2015/09/16 09:51:07 by ulefebvr         ###   ########.fr       */
+/*   Updated: 2015/10/28 16:28:17 by ulefebvr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_script.h"
-#include "ft_printf.h"
 #include "libft.h"
 
 #include <fcntl.h>
@@ -19,14 +18,14 @@
 int			ft_usage(char c)
 {
 	if (c)
-		ft_fdprintf(2, "ft_script: illegal option -- %c\n", c);
-	ft_fdprintf(2, "usage: ft_script [-aq] [file [command ...]]\n");
+		ft_fdprint(2, "ft_script: illegal option -- %c\n", c);
+	ft_fdprint(2, "usage: ft_script [-aq] [file [command ...]]\n");
 	return (-1);
 }
 
 int			ft_err(int ret, char *str)
 {
-	ft_fdprintf(2, str);
+	ft_fdprint(2, str);
 	return (ret);
 }
 
